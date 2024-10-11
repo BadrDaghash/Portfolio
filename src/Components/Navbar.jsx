@@ -45,7 +45,7 @@ export default function Navbar() {
                     `block py-2 px-3 md:px-3 md:py-1.5 rounded-lg md:hover:bg-transparent md:hover:text-cyan-600
                    md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
                     md:dark:hover:bg-transparent  transition-colors duration-300 ${isActive ?
-                      'bg-cyan-600 text-white' : 'text-cyan-400 hover:text-cyan-600'
+                      'bg-cyan-600 bg-opacity-50 text-white' : 'text-cyan-400 hover:text-cyan-600'
                     }`
                   }
                   onClick={handleClickedMenu}
@@ -61,7 +61,7 @@ export default function Navbar() {
                     `block py-2 px-3 md:px-3 md:py-1.5 rounded-lg md:hover:bg-transparent md:hover:text-cyan-600
                    md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
                     md:dark:hover:bg-transparent  transition-colors duration-300 ${isActive ?
-                      'bg-cyan-600 text-white' : 'text-cyan-400 hover:text-cyan-600'
+                      'bg-cyan-600 bg-opacity-50 text-white' : 'text-cyan-400 hover:text-cyan-600'
                     }`
                   }
                   onClick={handleClickedMenu}
@@ -76,7 +76,7 @@ export default function Navbar() {
                     `block py-2 px-3 md:px-3 md:py-1.5 rounded-lg md:hover:bg-transparent md:hover:text-cyan-600
                    md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
                     md:dark:hover:bg-transparent  transition-colors duration-300 ${isActive ?
-                      'bg-cyan-600 text-white ' : 'text-cyan-400 hover:text-cyan-600 '
+                      'bg-cyan-600 bg-opacity-50 text-white' : 'text-cyan-400 hover:text-cyan-600 '
                     }`
                   }
                   onClick={handleClickedMenu}

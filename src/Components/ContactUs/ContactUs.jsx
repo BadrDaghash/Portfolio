@@ -3,7 +3,6 @@ import Loader from '../../Loader/Loader';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 
-
 export default function ContactUs() {
   const [loading, setLoading] = useState(true);
   const form = useRef();
@@ -29,16 +28,22 @@ export default function ContactUs() {
       )
       .then(
         (result) => {
-          console.log('SUCCESS!', result.text);
-          toast.success('Successfully sent!')
+          console.log('Successfully sent ', result.text);
+          toast('Successfully sent', {
+            icon: '👏',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+          form.current.reset(); // Clear the form inputs
         },
         (error) => {
           console.log('FAILED...', error.text);
-          toast.error("Failed ")
         }
       );
   };
-
 
   if (loading) {
     return <Loader />;
@@ -47,8 +52,11 @@ export default function ContactUs() {
   return (
     <>
       <Toaster
-        position="top-right"
+        position="top-center"
         reverseOrder={false}
+        toastOptions={{
+          className: 'bg-[rgba(0,0,0,0.8)] text-white border-none',
+        }}
       />
       <h1 className='text-center text-white text-2xl sm:text-[45px] mb-4'>Send message</h1>
 
@@ -59,12 +67,12 @@ export default function ContactUs() {
               type="text"
               name="from_name"
               id="name"
-              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer"
+              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 focus:border-cyan-400 focus:outline-none focus:ring-0 peer"
               placeholder=" "
             />
             <label
               htmlFor="name"
-              className="absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-cyan-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              className="absolute text-sm text-white  duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-cyan-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
             >
               Name
             </label>
@@ -75,12 +83,12 @@ export default function ContactUs() {
               type="email"
               name="from_email"
               id="email"
-              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer"
+              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 focus:border-cyan-400 focus:outline-none focus:ring-0 peer"
               placeholder=" "
             />
             <label
               htmlFor="email"
-              className="absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              className="absolute text-sm text-white  duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-cyan-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
             >
               Email
             </label>
@@ -91,12 +99,12 @@ export default function ContactUs() {
               type="tel"
               name="from_phone"
               id="phone"
-              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer"
+              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300  focus:border-cyan-400 focus:outline-none focus:ring-0 peer"
               placeholder=" "
             />
             <label
               htmlFor="phone"
-              className="absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              className="absolute text-sm text-white  duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-cyan-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
             >
               Phone
             </label>
@@ -107,12 +115,12 @@ export default function ContactUs() {
               type="text"
               name="message"
               id="message"
-              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-0 peer"
+              className="block text-white rounded-t-lg px-2.5 pb-1.5 pt-4 w-full text-sm bg-transparent dark:bg-gray-700 border-0 border-b-2 border-cyan-300 focus:border-cyan-400 focus:outline-none focus:ring-0 peer"
               placeholder=" "
             />
             <label
               htmlFor="message"
-              className="absolute text-sm text-white dark:text-gray-400 duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+              className="absolute text-sm text-white  duration-300 transform -translate-y-3 scale-75 top-3 z-10 origin-[0] start-2.5 peer-focus:text-cyan-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
             >
               Message
             </label>

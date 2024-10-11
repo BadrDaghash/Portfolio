@@ -7,10 +7,10 @@ import Background from './Background'; // Import Background component
 export default function Layout() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh' }}>
-      <Background /> {/* Add Background component here */}
+      <Background /> 
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Navbar />
-        <div style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+        <div style={{ paddingTop: '4rem', paddingBottom: '8rem' }}>
           <Outlet />
         </div>
         <Footer />

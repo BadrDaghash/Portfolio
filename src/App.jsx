@@ -11,24 +11,27 @@ import Notfound from './Components/Notfound'
 
 let router = createBrowserRouter([
   {
-    path:'/',element:<Layout/>,children:[
-      { index: true, element: <Home/> },
-      { path: 'about', element: <About/> },
-      { path: 'projects', element: <Projects/> },
-      { path: 'contactus', element: <ContactUs/> },
-      { path: '*', element: <Notfound/> }
+    path: '/',
+    element: <Layout/>,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'projects', element: <Projects /> },
+      { path: 'contactus', element: <ContactUs /> },
+      { path: '*', element: <Notfound /> }
     ]
-    
-  },{
-    path:"/Portfolio/",element: <Home/>
   }
-])
+], {
+  basename: '/Portfolio' 
+});
 function App() {
 
   return (
     <>
     
-    <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router}>
+      
+    </RouterProvider>
  
     </>
   )
